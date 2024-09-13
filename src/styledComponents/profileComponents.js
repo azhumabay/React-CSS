@@ -1,12 +1,25 @@
 import { createGlobalStyle, styled } from "styled-components";
-import headerBackgroundImage from "../assets/images/header.jpg";
 import RobotoRegular from "../assets/fonts/Roboto-Regular.ttf";
 import RobotoBold from "../assets/fonts/Roboto-Bold.ttf";
 import RobotoLight from "../assets/fonts/Roboto-Light.ttf";
+
+import headerBackgroundImage from "../assets/images/header.jpg";
 import profileImage from "../assets/images/profileImg.png";
 import telegramSvg from "../assets/images/Telegram.svg";
-
-const primaryColor = "#f0f0f0";
+import friend_1 from "../assets/images/friend-1.png";
+import friend_2 from "../assets/images/friend-2.png";
+import friend_3 from "../assets/images/friend-3.png";
+import friend_4 from "../assets/images/friend-4.png";
+import gallery_1 from "../assets/images/gallery-1.png";
+import gallery_2 from "../assets/images/gallery-2.png";
+import gallery_3 from "../assets/images/gallery-3.png";
+import gallery_4 from "../assets/images/gallery-4.png";
+import gallery_5 from "../assets/images/gallery-5.png";
+import gallery_6 from "../assets/images/gallery-6.png";
+import home from "../assets/images/main.svg";
+import chat from "../assets/images/chat.svg";
+import favorite from "../assets/images/favorite.svg";
+import user from "../assets/images/user.svg";
 
 export const GlobalStyle = createGlobalStyle`
    @font-face {
@@ -36,7 +49,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${primaryColor};
+    background: linear-gradient(to bottom, #f0f0f0 0%, #FFF 90%);
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -56,7 +69,7 @@ const HeaderTriangle = styled.div`
   width: 0;
   height: 0;
   border-top: 50px solid transparent;
-  border-left: 428px solid ${primaryColor};
+  border-left: 428px solid #f0f0f0;
   position: absolute;
   bottom: 0;
 `;
@@ -109,6 +122,8 @@ export const Header = () => (
     <RightIcon />
   </HeaderStyled>
 );
+
+// Profile Info
 
 const ProfileInfoStyled = styled.article`
   width: 393px;
@@ -216,4 +231,193 @@ export const ProfileInfo = () => (
   </ProfileInfoStyled>
 );
 
-export const Main = () => {};
+// ProfileStats
+
+const ProfileStatsStyled = styled.article`
+  width: 129px;
+  height: 427px;
+  background: rgba(248, 249, 252, 0.5);
+  border-radius: 21px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+`;
+
+const StatItem = styled.div``;
+
+const StatValue = styled.p`
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+`;
+
+const StatLabel = styled.p`
+  font-size: 14px;
+  color: rgba(150, 150, 150, 1);
+  font-weight: 300;
+  margin: 0;
+  margin-top: 4px;
+`;
+
+const Divider = styled.div`
+  width: 73px;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 10px 0;
+`;
+
+const ProfileStats = () => (
+  <ProfileStatsStyled>
+    <StatItem>
+      <StatValue>10K</StatValue>
+      <StatLabel>Likes</StatLabel>
+    </StatItem>
+
+    <Divider />
+
+    <StatItem>
+      <StatValue>528</StatValue>
+      <StatLabel>Following</StatLabel>
+    </StatItem>
+
+    <Divider />
+
+    <StatItem>
+      <StatValue>1.2K</StatValue>
+      <StatLabel>Followers</StatLabel>
+    </StatItem>
+  </ProfileStatsStyled>
+);
+
+// Content
+
+const Content = styled.section``;
+
+// Friends
+
+const FriendsStyled = styled.div`
+  margin-bottom: 17px;
+`;
+
+const FriendsTitle = styled.h2`
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 14px;
+`;
+
+const FriendsImgWrapper = styled.div`
+  display: flex;
+  gap: 22px;
+`;
+
+const FriendsImg = styled.img`
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+`;
+
+const Friends = () => (
+  <FriendsStyled>
+    <FriendsTitle>Friends</FriendsTitle>
+    <FriendsImgWrapper>
+      <FriendsImg src={friend_1} />
+      <FriendsImg src={friend_2} />
+      <FriendsImg src={friend_3} />
+      <FriendsImg src={friend_4} />
+    </FriendsImgWrapper>
+  </FriendsStyled>
+);
+
+// Gallery
+
+const GalleryStyled = styled.div``;
+
+const GalleryTitle = styled.h2`
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 21px;
+`;
+
+const GalleryImgWrapper = styled.div`
+  width: 250px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 8px;
+  border-radius: 12px;
+  overflow: hidden;
+`;
+
+const GalleryImg = styled.img`
+  width: 120px;
+`;
+
+const Gallery = () => (
+  <GalleryStyled>
+    <GalleryTitle>Gallery</GalleryTitle>
+    <GalleryImgWrapper>
+      <GalleryImg src={gallery_1} />
+      <GalleryImg src={gallery_2} />
+      <GalleryImg src={gallery_3} />
+      <GalleryImg src={gallery_4} />
+      <GalleryImg src={gallery_5} />
+      <GalleryImg src={gallery_6} />
+    </GalleryImgWrapper>
+  </GalleryStyled>
+);
+
+// Main
+
+const MainStyled = styled.main`
+  margin-top: 153px;
+  display: flex;
+  gap: 18px;
+`;
+
+export const Main = () => (
+  <MainStyled>
+    <ProfileStats />
+    <Content>
+      <Friends />
+      <Gallery />
+    </Content>
+  </MainStyled>
+);
+
+// Footer
+
+const FooterStyled = styled.footer`
+  width: 100%;
+  background: #FFF;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+`;
+
+const FooterWrapper = styled.div`
+  width: 428px;
+
+  display: flex;
+  justify-content: space-around;
+`;
+
+const FooterIcon = styled.img`
+  padding: 10px;
+`;
+
+export const Footer = () => (
+  <FooterStyled>
+    <FooterWrapper>
+      <FooterIcon src={home} />
+      <FooterIcon src={chat} />
+      <FooterIcon src={favorite} />
+      <FooterIcon src={user} />
+    </FooterWrapper>
+  </FooterStyled>
+);

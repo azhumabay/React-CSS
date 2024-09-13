@@ -2,6 +2,8 @@ import {
   GlobalStyle,
   Header,
   ProfileInfo,
+  Main,
+  Footer,
 } from "./profileComponents";
 
 export default function Profile() {
@@ -10,6 +12,8 @@ export default function Profile() {
       <GlobalStyle />
       <Header />
       <ProfileInfo />
+      <Main />
+      <Footer />
     </>
   );
 }
