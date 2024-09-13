@@ -49,7 +49,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: linear-gradient(to bottom, #f0f0f0 0%, #FFF 90%);
+    background: #FFF;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -69,7 +69,7 @@ const HeaderTriangle = styled.div`
   width: 0;
   height: 0;
   border-top: 50px solid transparent;
-  border-left: 428px solid #f0f0f0;
+  border-left: 428px solid #FFF;
   position: absolute;
   bottom: 0;
 `;
@@ -130,7 +130,7 @@ const ProfileInfoStyled = styled.article`
   height: 246px;
   background: #fff;
   border-radius: 33px;
-  box-shadow: 0px 10px 30px 0px rgba(123, 87, 182, 0.18);
+  box-shadow: 0px 5px 17px 0px rgba(123, 87, 182, 0.18);
 
   position: absolute;
   top: 132px;
