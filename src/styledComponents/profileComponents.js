@@ -69,7 +69,7 @@ const HeaderTriangle = styled.div`
   width: 0;
   height: 0;
   border-top: 50px solid transparent;
-  border-left: 428px solid #FFF;
+  border-left: 428px solid #fff;
   position: absolute;
   bottom: 0;
 `;
@@ -123,9 +123,9 @@ export const Header = () => (
   </HeaderStyled>
 );
 
-// Profile Info
+// UserCard
 
-const ProfileInfoStyled = styled.article`
+const UserCardStyled = styled.article`
   width: 393px;
   height: 246px;
   background: #fff;
@@ -142,7 +142,7 @@ const ProfileInfoStyled = styled.article`
   padding-top: 70px;
 `;
 
-const ProfileImageWrapper = styled.div`
+const UserImageWrapper = styled.div`
   width: 105px;
   height: 105px;
   background: #fff;
@@ -158,19 +158,19 @@ const ProfileImageWrapper = styled.div`
   bottom: calc(100% - 50px);
 `;
 
-const ProfileImage = styled.img`
+const UserImage = styled.img`
   width: 95px;
   height: 95px;
   border-radius: 50%;
   object-fit: cover;
 `;
 
-const ProfileName = styled.h1`
+const UserName = styled.h1`
   font-size: 20px;
   margin-bottom: 15px;
 `;
 
-const ProfileDesc = styled.p`
+const UserDesc = styled.p`
   display: inline-block;
   width: 326px;
   font-weight: 300;
@@ -178,12 +178,12 @@ const ProfileDesc = styled.p`
   margin-bottom: 12px;
 `;
 
-const ProfileButtonsWrapper = styled.div`
+const UserButtonsWrapper = styled.div`
   display: flex;
   gap: 16px;
 `;
 
-const ProfileFollowButton = styled.button`
+const UserFollowButton = styled.button`
   width: 285px;
   height: 45px;
   background: rgba(8, 79, 255, 1);
@@ -195,11 +195,11 @@ const ProfileFollowButton = styled.button`
   font-weight: 700;
 `;
 
-const ProfileTelegramIcon = styled.img`
+const UserTelegramIcon = styled.img`
   width: 18px;
 `;
 
-const ProfileTelegramIconWrapper = styled.div`
+const UserTelegramIconWrapper = styled.div`
   background: #f0f0f0;
   width: 45px;
   height: 45px;
@@ -210,25 +210,25 @@ const ProfileTelegramIconWrapper = styled.div`
   align-items: center;
 `;
 
-export const ProfileInfo = () => (
-  <ProfileInfoStyled>
-    <ProfileImageWrapper>
-      <ProfileImage src={profileImage} />
-    </ProfileImageWrapper>
-    <ProfileName>Thomas R.</ProfileName>
-    <ProfileDesc>
+export const UserCard = () => (
+  <UserCardStyled>
+    <UserImageWrapper>
+      <UserImage src={profileImage} />
+    </UserImageWrapper>
+    <UserName>Thomas R.</UserName>
+    <UserDesc>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
       commodo consequat.
-    </ProfileDesc>
-    <ProfileButtonsWrapper>
-      <ProfileFollowButton>Follow</ProfileFollowButton>
-      <ProfileTelegramIconWrapper>
-        <ProfileTelegramIcon src={telegramSvg} />
-      </ProfileTelegramIconWrapper>
-    </ProfileButtonsWrapper>
-  </ProfileInfoStyled>
+    </UserDesc>
+    <UserButtonsWrapper>
+      <UserFollowButton>Follow</UserFollowButton>
+      <UserTelegramIconWrapper>
+        <UserTelegramIcon src={telegramSvg} />
+      </UserTelegramIconWrapper>
+    </UserButtonsWrapper>
+  </UserCardStyled>
 );
 
 // ProfileStats
@@ -390,7 +390,7 @@ export const Main = () => (
 
 const FooterStyled = styled.footer`
   width: 100%;
-  background: #FFF;
+  background: #fff;
 
   position: fixed;
   bottom: 0;
