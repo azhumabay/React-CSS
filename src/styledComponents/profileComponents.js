@@ -1,31 +1,58 @@
 import { createGlobalStyle, styled } from "styled-components";
-import headerImage from "../assets/images/header.jpg";
+import headerBackgroundImage from "../assets/images/header.jpg";
+import RobotoRegular from "../assets/fonts/Roboto-Regular.ttf";
+import RobotoBold from "../assets/fonts/Roboto-Bold.ttf";
+import RobotoLight from "../assets/fonts/Roboto-Light.ttf";
+import profileImage from "../assets/images/profileImg.png";
+import telegramSvg from "../assets/images/Telegram.svg";
 
 const primaryColor = "#f0f0f0";
 
 export const GlobalStyle = createGlobalStyle`
+   @font-face {
+    font-family: 'Roboto';
+    src: url(${RobotoRegular}) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url(${RobotoBold}) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url(${RobotoLight}) format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+    
   * {
     box-sizing: border-box;
+    margin: 0;
   }
 
   body {
     background-color: ${primaryColor};
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
   }
 `;
 
-export const Header = styled.header`
+const HeaderStyled = styled.header`
   width: 428px;
   height: 255px;
-  background: url(${headerImage}) center/cover;
+  background: url(${headerBackgroundImage}) center/cover;
   position: relative;
 `;
 
-export const HeaderTriangle = styled.div`
+const HeaderTriangle = styled.div`
   width: 0;
   height: 0;
   border-top: 50px solid transparent;
@@ -43,13 +70,13 @@ const LeftArrowSvg = styled.svg`
   left: 27px;
 `;
 
-export const LeftArrow = () => (
+const LeftArrow = () => (
   <LeftArrowSvg viewBox="0 0 26 20">
     <path
       stroke="#F7F0F0"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       d="M2 10.0208H24M2 10.0208L11.625 2M2 10.0208L11.625 18.0417"
     />
   </LeftArrowSvg>
@@ -65,7 +92,7 @@ const RightIconSvg = styled.svg`
   right: 23px;
 `;
 
-export const RightIcon = () => (
+const RightIcon = () => (
   <RightIconSvg viewBox="0 0 25 25">
     <path
       fillRule="evenodd"
@@ -75,10 +102,18 @@ export const RightIcon = () => (
   </RightIconSvg>
 );
 
-export const ProfileInfo = styled.article`
+export const Header = () => (
+  <HeaderStyled>
+    <HeaderTriangle />
+    <LeftArrow />
+    <RightIcon />
+  </HeaderStyled>
+);
+
+const ProfileInfoStyled = styled.article`
   width: 393px;
   height: 246px;
-  background: #FFF;
+  background: #fff;
   border-radius: 33px;
   box-shadow: 0px 10px 30px 0px rgba(123, 87, 182, 0.18);
 
@@ -86,5 +121,99 @@ export const ProfileInfo = styled.article`
   top: 132px;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
 `;
 
+const ProfileImageWrapper = styled.div`
+  width: 105px;
+  height: 105px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(100% - 50px);
+`;
+
+const ProfileImage = styled.img`
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  object-fit: cover;
+`;
+
+const ProfileName = styled.h1`
+  font-size: 20px;
+  margin-bottom: 15px;
+`;
+
+const ProfileDesc = styled.p`
+  display: inline-block;
+  width: 326px;
+  font-weight: 300;
+  font-size: 12px;
+  margin-bottom: 12px;
+`;
+
+const ProfileButtonsWrapper = styled.div`
+  display: flex;
+  gap: 16px;
+`;
+
+const ProfileFollowButton = styled.button`
+  width: 285px;
+  height: 45px;
+  background: rgba(8, 79, 255, 1);
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+`;
+
+const ProfileTelegramIcon = styled.img`
+  width: 18px;
+`;
+
+const ProfileTelegramIconWrapper = styled.div`
+  background: #f0f0f0;
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ProfileInfo = () => (
+  <ProfileInfoStyled>
+    <ProfileImageWrapper>
+      <ProfileImage src={profileImage} />
+    </ProfileImageWrapper>
+    <ProfileName>Thomas R.</ProfileName>
+    <ProfileDesc>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </ProfileDesc>
+    <ProfileButtonsWrapper>
+      <ProfileFollowButton>Follow</ProfileFollowButton>
+      <ProfileTelegramIconWrapper>
+        <ProfileTelegramIcon src={telegramSvg} />
+      </ProfileTelegramIconWrapper>
+    </ProfileButtonsWrapper>
+  </ProfileInfoStyled>
+);
+
+export const Main = () => {};
